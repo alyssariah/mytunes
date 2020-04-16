@@ -29,3 +29,10 @@ button {
   cursor: pointer;
   color: rgb(214, 179, 22);
 }
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.3em;
+}
+      

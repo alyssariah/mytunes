@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import HeaderComponent from './components/HeaderComponent'
+import HeaderComponent from './components/HeaderComponent';
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 function App() {
   const[tracks, setTracks] = useState([])
@@ -32,6 +33,7 @@ function App() {
   return (
     <>
     <HeaderComponent />
+    <hr></hr>
     <div className="App">
       <h1>Top Tracks</h1>
       <div className="topTracks">

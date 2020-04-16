@@ -6,8 +6,9 @@ export default function HeaderComponent() {
   return (
   <>
   <h1>Header Here</h1>
-  <div display="flex" justifyContent="center">
-      link1
+  <div className="nav-bar">
+      <div>All Songs</div>
+      <div>Faves</div>
   </div>
   </>
   );
