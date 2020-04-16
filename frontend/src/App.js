@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const[tracks, setTracks] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
  useEffect(()=> {
   const callAPI = () => {
     fetch("https://api.napster.com/v2.1/tracks/top?apikey=NmFmMTU4M2YtOTA4Mi00YzAzLWEyZDUtNTczMTYwMmNjZGFk")
@@ -11,6 +12,7 @@ function App() {
       console.log(json)
       setTracks(json)
     })
+    setIsLoading(false)
     }
     callAPI()
   }, [])
@@ -24,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <h1>Display music tracks</h1>
+    {!isLoading && renderMusic}
     </div>
   );
 }
