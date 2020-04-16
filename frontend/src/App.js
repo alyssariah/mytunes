@@ -56,9 +56,9 @@ function App() {
 export default App;
 
 
-/* <Switch>
-<Route exact path="/" component={App}/>
-<Route exact path="/All" component={AllSongs}/>
-<Route exact path="/Faves" component={FaveSongs}/>
+<Switch>
+    <Route exact path="/" component={App}/>
+    <Route exact path="/All" component={AllSongs}/>
+    <Route exact path="/Faves" component={FavoritesComponent}/>
 <Redirect to="/"/>
-</Switch> */
+</Switch> 
