@@ -11,4 +11,4 @@ const favoriteRouter = require('.routes/favorites')
 
 app.use('/favorites', favoriteRouter)
 
-app.listen(PORT, ()=> {"I am conntected on port: ", PORT})
+app.listen(PORT, ()=> console.log("I am conntected on port: ", PORT))
