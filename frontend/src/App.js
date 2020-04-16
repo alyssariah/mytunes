@@ -16,7 +16,6 @@ function App() {
     <HeaderComponent />
     <Switch>
       <Route exact path="/" component={AllSongs}/>
-      <Route exact path="/All" component={AllSongs}/>
       <Route exact path="/Faves" component={FavoritesComponent}/>
       <Redirect to="/"/>
     </Switch> 

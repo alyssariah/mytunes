@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {createFavorite} from "../services/api-helper"
 
 
 function AllSongs(){
@@ -18,10 +19,15 @@ function AllSongs(){
       callAPI()
     }, [])
     // console.log(" here are the tracks in app.js", tracks)
+
+    const handleCreate = async(track) => {
+        const json = await createFavorite({"Song": track.name, "Artist": track.artistName, "Album": track.albumName, "Preview": track.previewURL});
+        console.log(json)
+    }
     const renderMusic = tracks.map((track,index)=> {
         return(
           <div className="musicTrack" key={index}>
-            <h3>{track.name} <i class="far fa-star"></i></h3> 
+            <h3>{track.name} <span onClick={()=>handleCreate(track)} ><i className="far fa-star"></i></span></h3> 
             <p>Artist: {track.artistName}</p>
             <p>Album: {track.albumName}</p>
             <a href={track.previewURL}>Listen to preview</a>
