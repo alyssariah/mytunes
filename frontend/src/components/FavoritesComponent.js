@@ -35,8 +35,8 @@ function Favorites() {
       })
     return (
         <>
+        <h1>Favorites</h1>
             <div className="favoriteTracks">
-                <h2>Favorites</h2>
                 {!isLoading && renderFavorites}
             </div>
         </>
