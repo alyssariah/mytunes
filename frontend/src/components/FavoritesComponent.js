@@ -15,13 +15,21 @@ function Favorites() {
         makeAPICall();
     }, []);
 
+    const handleDelete = async(id) =>{
+        const json = await deleteFavorite(id)
+        console.log("delete", json)
+        const favArr = favorites.filter(fav => fav._id !== id);
+        setFavorites(favArr);
+    }
+
     const renderFavorites= favorites.map((track,index)=> {
         return(
           <div className="musicTrack" key={index}>
-            <h3>{track.Song} <i class="far fa-star"></i></h3> 
+            <h3>{track.Song} </h3> 
             <p>Artist: {track.Artist}</p>
             <p>Album: {track.Album}</p>
-            <a href={track.previewURL}>Listen to preview</a>
+            <a href={track.Preview}>Listen to preview</a>
+            <button onClick={()=> handleDelete(track._id)}>Delete</button>
           </div>
         )
       })
