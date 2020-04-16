@@ -6,5 +6,5 @@ Favorite.find({}).remove(() => {
 	    Artist: "Drake",
 	    Album: "Drake",
 	    Preview: "https://us.napster.com/artist/drake/album/toosie-slide-single/track/toosie-slide"
-    })
+    }).then(() => process.exit())
 })
