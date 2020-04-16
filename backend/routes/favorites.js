@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const Controller = require('../controller/favorites')
+const Controller = require('../controllers/favoriteController')
 
 router.get('/', Controller.getAll)
 

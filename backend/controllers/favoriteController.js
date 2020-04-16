@@ -3,13 +3,13 @@ const express = require('express')
 const Favorite = require('../models/item')
 
 const getAll = (req,res) => {
-    Favorite.find({}).then(favorites => {
+    Favorite.find().then(favorites => {
         res.json(favorites)
     })
 }
 
 const createFavorite = (req,res) => {
-    Favorite.create().then(favorite => {
+    Favorite.create(req.body).then(favorite => {
         res.json(favorite)
     })
 }

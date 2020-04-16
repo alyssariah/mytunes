@@ -8,7 +8,7 @@ const ItemSchema = new Schema({
         Preview: String
 })
 
-const Item = mongosse.model('Songs', ItemSchema)
+const Item = mongoose.model('Songs', ItemSchema)
 module.exports= Item
 
 // (
