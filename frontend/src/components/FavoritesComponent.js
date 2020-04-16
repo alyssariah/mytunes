@@ -9,7 +9,7 @@ function Favorites() {
         const makeAPICall = async () => {
             const resp = await getAllFavorites();
             // console.log('useEffect - resp', resp)
-            setUsers(resp);
+            setFavorites(resp);
             setIsloading(false);
         };
         makeAPICall();
