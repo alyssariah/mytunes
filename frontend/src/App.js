@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
+  const[tracks, setTracks] = useState([])
+ useEffect(()=> {
+  const callAPI = () => {
+    fetch("https://api.napster.com/v2.1/tracks/top?apikey=NmFmMTU4M2YtOTA4Mi00YzAzLWEyZDUtNTczMTYwMmNjZGFk")
+    .then(res => res.json())
+    .then(json=> {
+      console.log(json)
+      setTracks(json)
+    })
+    }
+    callAPI()
+  }, [])
+
+  const renderMusic = tracks.map((track,index)=> {
+    return(
+      <li>{track.name} {track.artistName}</li>
+
+    )
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Display music tracks</h1>
     </div>
   );
 }
