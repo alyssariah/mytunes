@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# My Tunes
+This project displays a list of songs. A user can browse through the songs and listen to previews. The user can click on the favorite icon to add a song to a favorite list. The user can click the favorite tab and view only their favorited songs. To take on song off the favorite list, a user only has to uncheck the favorite icon.
 
-## Available Scripts
+## Motivation
+To experiment with React props and the Napster API
 
-In the project directory, you can run:
+## Deployment
 
-### `npm start`
+Netlify - https://favorite-tracks.netlify.app/
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Code Style
+React- JSX style
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Screenshots
+![Home Page](images/favorites.jpeg)
+![Favorites](images/favorites.jpeg)
 
-### `npm test`
+## Tech/Framework used
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React.js with functional components
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Preivew songs
+* Save your favorite songs by clicking of favorite start icon
+* Favorite icon will turn a different color
+* Use of local storage
+* Favorite page to view all favorite songs
+* Remove a song from favorite list by clicking on the favorite icon again
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## API Reference
 
-### `npm run eject`
+[Napster API](https://developer.napster.com/api/v2.2)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Code Example 
+Use of Napster API, setting state, and localStorage
+```
+  const[tracks, setTracks] = useState(() => {
+    const result = localStorage.getItem('tracks')
+    return result? JSON.parse(result): []
+  })
+  const [isLoading, setIsLoading] = useState(true)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  useEffect(() => {
+    const callAPI = () => {
+      fetch("https://api.napster.com/v2.2/genres/g.397/tracks/top?limit=100&apikey=NmFmMTU4M2YtOTA4Mi00YzAzLWEyZDUtNTczMTYwMmNjZGFk")
+      .then(res => res.json())
+      .then(json => {
+        console.log(json)
+        json.tracks.map((track, index)=>{
+          if(tracks.length === 0){
+            setTracks(tracks => [...tracks, {name: track.name, artistName: track.artistName, albumName: track.albumName, previewURL: track.previewURL, fav: false}])
+          }
+        })
+      })
+      }
+      callAPI()
+    }, [])
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+© My Tunes
