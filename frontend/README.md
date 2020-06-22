@@ -12,8 +12,8 @@ Netlify - https://favorite-tracks.netlify.app/
 React- JSX style
 
 ## Screenshots
-![Home Page](images/favorites.jpeg)
-![Favorites](images/favorites.jpeg)
+![Home Page](mytunes.jpeg)
+![Favorites](favorites.jpeg)
 
 ## Tech/Framework used
 
